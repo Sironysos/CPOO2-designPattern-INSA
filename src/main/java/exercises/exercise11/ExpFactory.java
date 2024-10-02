@@ -20,10 +20,23 @@ public class ExpFactory {
 	}
 }
 
+public class ExpFactory {
+	private final Map<String, CmdExp> map = new HashMap<>();
+	public ExpFactory() {
+		map= Map.of(
+			"mult", new Mult(),
+			"plus", new Plus(),
+			"min", new Min(),
+			"mod", new Mod()
+		);
+	}
+	public Optional<ArithmExp> createExp(final String exp) {
+		return Optional.ofNullable(map.getOrDefault(exp, () -> null).get());
+	}
+}
+
 interface ArithmExp {}
 class Mult implements ArithmExp {}
 class Plus implements ArithmExp {}
 class Min implements ArithmExp {}
 class Mod implements ArithmExp {}
-
-
