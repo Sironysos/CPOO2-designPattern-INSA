@@ -1,7 +1,7 @@
 package exercises.exercise13;
 
 public class ValueNode implements Node {
-	public final int val;
+	public final Integer val;
 
 	public ValueNode(final int valNode) {
 		super();
